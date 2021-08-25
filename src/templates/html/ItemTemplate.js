@@ -1,4 +1,3 @@
-import JsonML from '../../common/jsonml-html';
 import Size from '../../graphics/structs/Size';
 
 export default function ItemTemplate(options, itemTemplateConfig) {
@@ -19,17 +18,24 @@ export default function ItemTemplate(options, itemTemplateConfig) {
                 },
                 'class': ['bp-item', 'bp-corner-all', 'bt-item-frame', 'person-card'],
             },
-            ['img', // photo
+            ['div',
                 {
-                    'name': 'avatar',
-                    'alt': '',
-                    'class': 'person-card_avatar',
-                    'style': {
-                        width: '100px',
-                        height: '100px',
-                        'object-fit': 'cover',
-                    },
+                    'name': 'avatarWrapper',
+                    'style': {},
+                    'class': ['bp-item', 'bp-description', 'person-card_avatar-wrapper'],
                 },
+                ['img', // photo
+                    {
+                        'name': 'avatar',
+                        'alt': '',
+                        'class': 'person-card_avatar',
+                        'style': {
+                            width: '100px',
+                            height: '100px',
+                            'object-fit': 'cover',
+                        },
+                    },
+                ],
             ],
             ['div',
                 {
@@ -61,7 +67,9 @@ export default function ItemTemplate(options, itemTemplateConfig) {
     function render(event, data) {
         var itemConfig = data.context,
             element = data.element,
-            photo = element.firstChild,
+            photoWrapper = element.firstChild,
+            photo = element.firstChild.firstChild,
+            ribbon = element.firstChild.childNodes[1],
             title = element.childNodes[1],
             description = element.childNodes[2];
 
@@ -69,6 +77,14 @@ export default function ItemTemplate(options, itemTemplateConfig) {
         photo.alt = itemConfig.title;
         title.textContent = itemConfig.title;
         description.textContent = itemConfig.dates;
+
+
+        if (itemConfig.isAlive === false && !ribbon) {
+            const ribbon = document.createElement('div');
+            ribbon.className = 'person-card_avatar_ribbon';
+            ribbon.innerHTML = `<span>.</span>`;
+            photoWrapper.appendChild(ribbon);
+        }
     }
 
     return {

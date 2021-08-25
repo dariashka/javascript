@@ -2,7 +2,7 @@
   cursorItem: 1,
   annotations: [],
   items: [
-    { id: 1, title: "David Dalton", groupTitle: "1", label: "David Dalton", dates: "1, Chief Executive Officer (CEO)", phone: "352-206-7599", email: "davidalt@name.com", avatar: "../images/photos/q.png", itemTitleColor: "#4169e1" },
+    { id: 1, title: "David Dalton", isAlive: false, groupTitle: "1", label: "David Dalton", dates: "1, Chief Executive Officer (CEO)", phone: "352-206-7599", email: "davidalt@name.com", avatar: "../images/photos/q.png", itemTitleColor: "#4169e1" },
     { id: 2, parents: [1, 101, 102, 103], title: "Steven Lacombe", groupTitle: "2", label: "Steven Lacombe", dates: "2, GM, Platform Strategy", phone: "805-800-7397", email: "stevlaco@name.com", avatar: "../images/photos/a.png", itemTitleColor: "#4b0082" },
     { id: 3, parents: [1, 101, 102, 103], title: "Nancy Smith", label: "Nancy Smith", dates: "3, GM, Strategic Marketing and Communications", phone: "631-787-3495", email: "nancsmit@name.com", avatar: "../images/photos/s.png", itemTitleColor: "#4b0082" },
     { id: 4, parents: [2, 3], title: "Ann Smith", label: "Nancy Smith", dates: "4, GM, Strategic Marketing and Communications", phone: "631-787-3495", email: "nancsmit@name.com", avatar: "../images/photos/s.png", itemTitleColor: "#4b0082" }
