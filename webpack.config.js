@@ -14,7 +14,7 @@ module.exports = {
     devServer: {
 		contentBase: './',
 		hot: true,
-		port: 8080
+		port: 8088
 	},
 	//devtool: 'eval-source-map',
 	devtool: 'source-map',
