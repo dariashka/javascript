@@ -5,9 +5,8 @@ export default function CursorTemplate(options, itemTemplateConfig) {
     return ["div",
       {
         "style": {
-          width: (config.itemSize.width + config.cursorPadding.left + config.cursorPadding.right) + "px",
-          height: (config.itemSize.height + config.cursorPadding.top + config.cursorPadding.bottom) + "px",
-          "borderWidth": config.cursorBorderWidth + "px"
+          width: 100 + "px",
+          height: 100 + "px",
         },
         "class": ["bp-item", "bp-corner-all", "bp-cursor-frame"]
       }

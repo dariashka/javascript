@@ -29,6 +29,7 @@ export default function DrawCursorTask(getGraphics, createTransformTask, applyLa
       panel = _graphics.activate("placeholder", Layers.Cursor),
       treeItemPosition = alignDiagramTask.getItemPosition(treeItemId);
     if (treeItemPosition != null) {
+      console.log(treeItemPosition.contentPosition);
       var actualPosition = treeItemPosition.actualPosition,
         position = new Rect(treeItemPosition.contentPosition),
         templateParams = itemTemplateParamsTask.getTemplateParams(treeItemId),
@@ -46,9 +47,13 @@ export default function DrawCursorTask(getGraphics, createTransformTask, applyLa
 
       _transform.transformRect(actualPosition.x, actualPosition.y, actualPosition.width, actualPosition.height, true,
         this, function (x, y, width, height) {
-          var element = _graphics.template(
-            x
-            , y
+            // changing to have only an avatar highlighted
+            const newX = x + (width / 2 - 50);
+            const newY = y + 3
+
+            var element = _graphics.template(
+            newX
+            , newY
             , width
             , height
             , position.x
